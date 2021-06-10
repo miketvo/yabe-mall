@@ -19,11 +19,11 @@
         "/js/cards.js"
     ];
     
-    // Constants for display at most 10 items
+    // Constants
     define("NEW_PRODUCTS_DISPLAY_NUM", 10);
-    define("FEATURED_PRODUCTS_DISPLAY_NUM", 10);
-    define("NEW_STORES_DISPLAY_NUM", 10);
+    define("FEATURED_PRODUCTS_DISPLAY_NUM", 12);
     define("FEATURED_STORES_DISPLAY_NUM", 10);
+    define("NEW_STORES_DISPLAY_NUM", 12);
     
 
     // Dynamic loading of database
