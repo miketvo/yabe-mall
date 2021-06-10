@@ -24,6 +24,10 @@
     "config": {
         "optimize-autoloader": true
     },
+    "scripts": {
+        "serve": "php -S localhost:8080 -t public",
+        "serve-network-preview": "php -S 0.0.0.0:8080 -t public"
+    },
     "require": {
         "php": "~7.4.0"
     },
