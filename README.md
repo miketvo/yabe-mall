@@ -7,6 +7,7 @@
 - Phase 1: https://github.com/kuri-team/yabe-online-mall.github.io (archived on Jun 1st 2021)
 - Phase 2: https://github.com/kuri-team/yabe-online-mall (archived on Jun 14th 2021)
 - Phase 3: https://github.com/kuri-team/yabe-mall
+- Phase 4: https://github.com/miketvo/yabe-mall (fork) - my own further customization of this project for use as a demonstrative web application
 
 ## Assignment Requirements
 
@@ -64,7 +65,7 @@ More requirements are listed below:
 ## Implementation
 
 ### 1. Deployment
-#### Yabe online mall e-commerce website, deployed with Heroku: https://yabe-mall.herokuapp.com/ (`main` branch)
+#### Yabe online mall e-commerce website, deployed with Heroku: https://yabe-ecommerce.herokuapp.com/ (`main` branch)
 **Usage Notice:** Heroku provides an [ephemeral filesystem](https://help.heroku.com/K1PPS2WM/why-are-my-file-uploads-missing-deleted); and for this assignment, we were restricted by our instructor [@TriDang](https://github.com/TriDang) to only use static .csv assets as database. For these two reasons, any user created data such as registration, password change, file upload, etc. will be purged each day at midnight UTC±00:00 as a new instance of the application is automatically redeployed by Heroku. Do not save any important data on this demonstrative web application.
 
 #### Backup: https://kuri-team.github.io/yabe-mall/ (`release-2.4-05-08-21` branch) - static website
