@@ -20,9 +20,6 @@
     if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["q"]) && isset($_GET["filter"])) {
         $query = trim($_GET["q"]);
         $filter = $_GET["filter"];
-        if ($filter === "Filter") {
-            $filter = "All";
-        }
         $search = new Search($query, $_GET["filter"]);
         $page_title .= " \"{$query}\"";
         $nav_search_query = $query;
@@ -52,16 +49,17 @@
           echo "<div class='message-warning mt-20'>No result. Please try a different keyword/keywords combination.</div>";
           echo "</div>";
       }
+    
+      if ($filter === "Filter") {
+          $filter = "All";
+      }
   
   ?>
   
   <?php
     
-      foreach ($search->results as $result) {
-          if (get_class($result) === "DatabaseProduct") {
-              echo "<h2 class='search-section-title text-align-center'>\"" . strtoupper($query) . "\" PRODUCTS</h2>";
-              break;
-          }
+      if (!$no_result && ($filter === "All" || $filter === "Products")) {
+          echo "<h2 class='search-section-title text-align-center'>\"" . strtoupper($query) . "\" PRODUCTS</h2>";
       }
       
   ?>
@@ -90,11 +88,8 @@
     
     <?php
     
-        foreach ($search->results as $result) {
-            if (get_class($result) === "DatabaseStore") {
-                echo "<h2 class='search-section-title text-align-center'>\"" . strtoupper($query) . "\" STORES</h2>";
-                break;
-            }
+        if (!$no_result && ($filter === "All" || explode(" ", $filter)[0] === "Stores")) {
+            echo "<h2 class='search-section-title text-align-center'>\"" . strtoupper($query) . "\" STORES</h2>";
         }
     
     ?>
