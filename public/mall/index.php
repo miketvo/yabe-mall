@@ -55,7 +55,7 @@
               $display_count = 0;
               while ($display_count < NEW_PRODUCTS_DISPLAY_NUM) {
                   echo "<div class='product-card'>
-                        <a href='" . url_for("/store/content/product-detail?id={$products[$display_count]['id']}") . "'><img alt='image of a product' src='../media/image/placeholder_262x250.png'></a>
+                        <a href='" . url_for("/store/content/product-detail?id={$products[$display_count]['id']}") . "'><img alt='image of a product' src='" . $products[$display_count]["thumbnail"] . "'></a>
                         <div class='product-card-details'>
                           <a class='product-card-title' href='" . url_for("/store/content/product-detail?id={$products[$display_count]['id']}") . "'>" . $products[$display_count]["name"] . "</a>
                           <a class='product-card-shop' href='" . url_for("/store/content?id={$products[$display_count]['store_id']}") . "'>" . get_store_name((int) $products[$display_count]["store_id"], $stores) . "</a>
@@ -82,7 +82,7 @@
               $featured_mall_products = check_featured_mall_products($products);
               while ($display_count < FEATURED_PRODUCTS_DISPLAY_NUM && $display_count < count($featured_mall_products)) {
                   echo "<div class='product-card'>
-                        <a href='" . url_for("/store/content/product-detail?id={$featured_mall_products[$display_count]['id']}") . "'><img alt='image of a product' src='../media/image/placeholder_262x250.png'></a>
+                        <a href='" . url_for("/store/content/product-detail?id={$featured_mall_products[$display_count]['id']}") . "'><img alt='image of a product' src='" . $featured_mall_products[$display_count]["thumbnail"] . "'></a>
                         <div class='product-card-details'>
                           <a class='product-card-title' href='" . url_for("/store/content/product-detail?id={$featured_mall_products[$display_count]['id']}") . "'>" . $featured_mall_products[$display_count]["name"] . "</a>
                           <a class='product-card-shop' href='" . url_for("/store/content?id={$featured_mall_products[$display_count]['store_id']}") . "'>" . get_store_name((int) $featured_mall_products[$display_count]["store_id"], $stores) . "</a>
