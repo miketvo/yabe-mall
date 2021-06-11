@@ -10,7 +10,7 @@ id,name,category_id,created_time,featured,profile_pic
 9,Danone 4,2,2018-09-11 00:34:05Z,FALSE,/media/image/store_logos/larocheposay_logo.png
 10,Demaco 3,2,2020-08-09 20:10:51Z,FALSE,/media/image/store_logos/lenovo_logo.png
 11,21st Century Fox 4,3,2019-07-12 03:45:03Z,FALSE,/media/image/store_logos/nike_logo.jpg
-12,AECOM 1,3,2020-12-29 12:57:25Z,FALSE,/media/image/store_logos/paula_choice_logo.jpg
+12,AECOM 1,3,2020-12-29 12:57:25Z,TRUE,/media/image/store_logos/paula_choice_logo.jpg
 13,CarMax 4,3,2018-08-29 21:46:37Z,FALSE,/media/image/store_logos/samsung_logo.png
 14,Comcast 3,3,2020-11-25 19:52:53Z,FALSE,/media/image/store_logos/sephora_logo.jpg
 15,Comodo 6,3,2020-02-04 00:10:01Z,FALSE,/media/image/store_logos/viettel_logo.jpg
@@ -65,7 +65,7 @@ id,name,category_id,created_time,featured,profile_pic
 64,ENEL 4,8,2020-03-31 12:22:48Z,FALSE,/media/image/store_logos/lenovo_logo.png
 65,Mars 2,8,2020-06-15 15:40:29Z,FALSE,/media/image/store_logos/nike_logo.jpg
 66,Metro Cash&Carry 2,8,2018-07-21 14:56:29Z,FALSE,/media/image/store_logos/paula_choice_logo.jpg
-67,UPC 4,8,2020-08-12 13:00:55Z,FALSE,/media/image/store_logos/samsung_logo.png
+67,UPC 4,8,2020-08-12 13:00:55Z,TRUE,/media/image/store_logos/samsung_logo.png
 68,BuzzFeed 1,8,2019-02-10 03:05:26Z,TRUE,/media/image/store_logos/sephora_logo.jpg
 69,CarMax 1,8,2019-07-23 19:03:27Z,TRUE,/media/image/store_logos/viettel_logo.jpg
 70,Mars 1,8,2020-02-10 02:38:47Z,TRUE,/media/image/store_logos/webtoon_logo.jpg
@@ -86,7 +86,7 @@ id,name,category_id,created_time,featured,profile_pic
 85,Metro Cash&Carry 4,11,2020-03-10 10:52:45Z,FALSE,/media/image/store_logos/samsung_logo.png
 86,Vodafone 1,11,2019-09-30 08:58:06Z,FALSE,/media/image/store_logos/sephora_logo.jpg
 87,Team Guard SRL 1,11,2021-03-11 15:12:53Z,TRUE,/media/image/store_logos/viettel_logo.jpg
-88,UPC 1,11,2020-01-08 17:56:04Z,TRUE,/media/image/store_logos/webtoon_logo.jpg
+88,UPC 1,11,2020-01-08 17:56:04Z,FALSE,/media/image/store_logos/webtoon_logo.jpg
 89,AECOM 2,12,2018-12-04 16:49:42Z,FALSE,/media/image/store_logos/Xiaomi_logo.png
 90,AECOM 3,12,2019-01-04 06:02:39Z,FALSE,/media/image/store_logos/zappos_logo.jpg
 91,AECOM 5,12,2018-10-30 06:10:37Z,FALSE,/media/image/store_logos/apple_logo.png
@@ -98,4 +98,4 @@ id,name,category_id,created_time,featured,profile_pic
 97,Metro Cash&Carry 1,13,2021-03-02 13:40:36Z,FALSE,/media/image/store_logos/jabra_logo.png
 98,Team Guard SRL 2,13,2019-10-14 00:10:41Z,FALSE,/media/image/store_logos/jordan_logo.png
 99,UPC 2,13,2018-09-11 21:15:18Z,FALSE,/media/image/store_logos/larocheposay_logo.png
-100,Zepter 4,13,2021-04-08 18:50:22Z,FALSE,/media/image/store_logos/lenovo_logo.png
+100,Zepter 4,13,2021-04-08 18:50:22Z,TRUE,/media/image/store_logos/lenovo_logo.png
