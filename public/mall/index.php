@@ -44,7 +44,7 @@
 
   <main id="mall-main">
     <section class="card-gallery mall-home-section mall-home-section-gallery">
-      <h1 class="card-gallery-title">NEW PRODUCTS<span class="mall-home-section-heading-link"><a href="<?=url_for("/mall/browse/by-product/by-date.php");?>">MORE</a></span></h1>
+      <h1 class="card-gallery-title">NEW PRODUCTS<span class="mall-home-section-heading-link"><a href="<?=url_for("/mall/browse/products?q=date");?>">MORE</a></span></h1>
 
       <button class="card-gallery-left-bttn"><i class="fas fa-angle-left"></i></button>
       <div class="card-gallery-content flex-container flex-justify-content-space-between flex-align-items-center overflow-hidden">
@@ -72,7 +72,7 @@
     </section>
 
     <section class="mall-home-section" id="featured-products">
-      <h1>FEATURED PRODUCTS<span class="mall-home-section-heading-link"><a href="<?=url_for("/404");?>">ALL</a></span></h1>
+      <h1>FEATURED PRODUCTS<span class="mall-home-section-heading-link"><a href="<?=url_for("/mall/browse/products?q=featured");?>">ALL</a></span></h1>
 
       <div class="flex-container flex-justify-content-space-between flex-align-items-center flex-wrap">
           <?php
@@ -98,7 +98,7 @@
     </section>
 
     <section class="mall-home-section" id="featured-stores">
-      <h1>FEATURED STORES<span class="mall-home-section-heading-link"><a href="<?=url_for("/404");?>">ALL</a></span></h1>
+      <h1>FEATURED STORES<span class="mall-home-section-heading-link"><a href="<?=url_for("/mall/browse/stores?q=featured");?>">ALL</a></span></h1>
 
       <div class="flex-container flex-justify-content-space-between flex-align-items-center flex-wrap">
           <?php
@@ -120,7 +120,7 @@
     </section>
 
     <section class="mall-home-section card-gallery">
-      <h1 class="card-gallery-title">NEW STORES<span class="mall-home-section-heading-link"><a href="<?=url_for("/404");?>">MORE</a></span></h1>
+      <h1 class="card-gallery-title">NEW STORES<span class="mall-home-section-heading-link"><a href="<?=url_for("/mall/browse/stores?q=date");?>">MORE</a></span></h1>
 
       <button class="card-gallery-left-bttn"><i class="fas fa-angle-left"></i></button>
       <div class="card-gallery-content flex-container flex-justify-content-space-between flex-align-items-center overflow-hidden clear-both">

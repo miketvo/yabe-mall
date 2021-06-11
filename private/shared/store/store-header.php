@@ -22,7 +22,7 @@
         <img class="store-img" alt="image of a shop"
              src="<?=url_for("/media/image/store-header-placeholder.jpg");?>">
         <img class="store-card-thumbnail circle-img" alt="image representation of a shop"
-             src="<?=url_for("/media/image/profile-placeholder_143x143.png");?>">
+             src="<?=$store["profile_pic"];?>">
         
         <h2><?=$store["name"];?></h2>
         <h3><?=$store_cat["name"];?></h3>
@@ -40,7 +40,7 @@
                 <div class="store-nav-dropdown-list">
                     <a href="<?=url_for("/store/content/browse-product/by-category.php?id=" . $store["id"]);?>">CATEGORY</a>
                     <hr>
-                    <a href="<?=url_for("/store/content/browse-product/by-date.php?id=" . $store["id"]);?>">DATE</a>
+                    <a href="<?=url_for("/store/content/browse-product/index.php?id=" . $store["id"]);?>">DATE</a>
                 </div>
             </div>
             <div class="store-nav-bttn"><a href="<?=url_for("/store/content/pages/contact.php?id=" . $store["id"]);?>">CONTACT</a></div>
@@ -60,7 +60,7 @@
                         <i class="fas fa-caret-down"></i>
                         <ul class="responsive-store-navbar-content-dropdown">
                             <li><a href="<?=url_for("/store/content/browse-product/by-category.php?id=" . $store["id"]);?>">Category</a></li>
-                            <li><a href="<?=url_for("/store/content/browse-product/by-date.php?id=" . $store["id"]);?>">Date</a></li>
+                            <li><a href="<?=url_for("/store/content/browse-product/index.php?id=" . $store["id"]);?>">Date</a></li>
                         </ul>
                     </li>
                     <li><a href="<?=url_for("/store/content/pages/contact.php?id=" . $store["id"]);?>">Contact</a></li>

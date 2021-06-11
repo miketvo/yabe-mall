@@ -6,9 +6,16 @@
         public DatabaseCategory $category;
         public int $created_time;  // MUST be an Unix timestamp (number of seconds since the Unix Epoch - January 1 1970 00:00:00 GMT)
         public bool $featured;  // true if this store is featured on mall home, false otherwise  TODO: This OOP feature is not yet implemented due to time constraint. Right now it is implemented functionally in /public/mall/index.php
+        public string $profile_pic;
     
-    
-        public function __construct(string $id, string $name, DatabaseCategory $category, int $created_time=null, bool $featured=false) {
+        public function __construct(
+            string $id,
+            string $name,
+            DatabaseCategory $category,
+            int $created_time=null,
+            bool $featured=false,
+            string $profile_pic="/media/image/profile-placeholder_143x143.png"
+        ) {
             parent::__construct($id, $name);
             if ($created_time === null) {
                 $this->created_time = time();
@@ -17,6 +24,7 @@
             }
             $this->category = $category;
             $this->featured = $featured;
+            $this->profile_pic = $profile_pic;
             
             self::$count++;
         }

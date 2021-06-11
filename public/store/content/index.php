@@ -9,16 +9,6 @@
 
 <?php
     
-    // get all stores and products data
-    $stores = read_csv("../../../private/database/stores.csv", true);
-    $products = read_csv("../../../private/database/products.csv", true);
-    
-    no_id_redirect(count($stores));
-	
-    $specific_store = get_item_data($stores);
-    
-    
-    $page_title = $specific_store["name"] . " | Home";
     $style_sheets = [
         "/css/common.css",
         "/css/cards.css",
@@ -31,15 +21,25 @@
     ];
     
     
+    // get all stores and products data
+    $stores = read_csv("../../../private/database/stores.csv", true);
+    $products = read_csv("../../../private/database/products.csv", true);
+    
+    no_id_redirect(count($stores));
+    
+    $specific_store = get_item_data($stores);
+    $page_title = $specific_store["name"] . " | Home";
+    
+    
     /**
      * Dynamic display of product cards
      * @param $product
      * to be displayed
      */
-    function display_product_cards($product) {
+    function display_product_card($product) {
         echo "<div class='product-card'>";
         echo "<a href='" . url_for("/store/content/product-detail?id=" . $product["id"]) . "'>
-                <img alt='image of a product' src='../../media/image/placeholder_262x250.png'></a>";
+                <img alt='image of a product' src='" . $product["thumbnail"] . "'></a>";
         echo "<div class='product-card-details'>";
         echo "<a class='product-card-title' href='" . url_for("/store/content/product-detail?id=" . $product["id"]) . "'>" . $product["name"] . "</a>";
         echo "<p class='product-card-shop'>Short description</p>";
@@ -58,7 +58,7 @@
     // get products that are featured on a specific store
     $specific_featured_products = get_specific_store_products($all_featured_products, $specific_store);
     
-    define("MAX_NUM_NEW_PRODUCTS", 5);
+    define("MAX_NUM_NEW_PRODUCTS", 6);
     
 
     include(SHARED_PATH . "/top.php");
@@ -66,24 +66,24 @@
 ?>
 
   <main>
-      <?php require_once(SHARED_PATH . "/store/store-header.php"); ?>
+      <?php include(SHARED_PATH . "/store/store-header.php"); ?>
       
       <section class="store-home-content">
         <section class="store-home-content-new mb-80">
           <div class="store-home-content-header text-align-center">
             <h1 class="mr-10">NEW PRODUCTS</h1>
-            <a href="<?=url_for("/store/content/browse-product/by-date.php");?>">VIEW MORE</a>
+            <a href="<?=url_for("/store/content/browse-product?id=") . $specific_store["id"];?>">VIEW MORE</a>
           </div>
 
           <section class="store-product-cards">
-            <div class="flex-container flex-justify-content-space-between flex-align-items-center flex-wrap">
+            <div class="flex-container flex-justify-content-space-evenly flex-align-items-center flex-wrap">
                 <?php
                     
                     $count = 0;
     
                     // display product cards until the max number of products is reached
                     foreach ($specific_products as $new_product) {
-                        display_product_cards($new_product);
+                        display_product_card($new_product);
                         $count++;
                         
                         if ($count === MAX_NUM_NEW_PRODUCTS) {
@@ -99,16 +99,15 @@
         <section class="store-home-content-featured mb-80">
           <div class="store-home-content-header text-align-center">
             <h1 class="mr-10">FEATURED PRODUCTS</h1>
-            <a href="">SEE ALL</a>
           </div>
 
           <section class="store-product-cards">
-            <div class="flex-container flex-justify-content-space-between flex-align-items-center flex-wrap">
+            <div class="flex-container flex-justify-content-space-evenly flex-align-items-center flex-wrap">
                 <?php
                 
                     // display all featured products of the store
                     foreach ($specific_featured_products as $ft_product) {
-                        display_product_cards($ft_product);
+                        display_product_card($ft_product);
                     }
                 
                 ?>

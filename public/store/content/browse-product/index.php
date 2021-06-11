@@ -18,7 +18,7 @@
     $specific_store = get_item_data($stores);
     
     
-    $page_title = $specific_store["name"] . " | By Date";
+    $page_title = $specific_store["name"] . " | Browse Products";
     $style_sheets = [
         "/css/common.css",
         "/css/cards.css",
@@ -43,14 +43,14 @@
     // get all products from the store
     $products_from_store = get_specific_store_products($products, $specific_store);
 
-    $max_products = 2; // maximum number of stores displayed on the page
+    $max_products = 6; // maximum number of stores displayed on the page
 
     $by_date_options = ["Newest", "Oldest"];
 
      function display_product_cards($product) {
          echo "<div class='product-card'>";
          echo "<a href='" . url_for("/store/content/product-detail?id=" . $product["id"]) . "'>
-                <img alt='image of a product' src='../../../media/image/placeholder_262x250.png'></a>";
+                <img alt='image of a product' src='{$product["thumbnail"]}'></a>";
          echo "<div class='product-card-details'>";
          echo "<a class='product-card-title' href='" . url_for("/store/content/product-detail?id=" . $product["id"]) . "'>" . $product["name"] . "</a>";
          echo "<p class='product-card-shop'>Short description</p>";
@@ -92,7 +92,7 @@
       </form>
 
       <section class="store-product-cards">
-          <div class="flex-container flex-justify-content-space-between flex-align-items-center flex-wrap">
+          <div class="flex-container flex-justify-content-space-evenly flex-align-items-center flex-wrap">
               <?php
               function date_sort($product1, $product2) {
                   $date1 = strtotime($product1['created_time']);

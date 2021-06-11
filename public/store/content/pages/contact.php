@@ -30,7 +30,7 @@
 ?>
 
   <main>
-      <?php require_once(SHARED_PATH . "/store/store-header.php"); ?>
+      <?php include(SHARED_PATH . "/store/store-header.php"); ?>
       
       <h2 class="store-content-heading text-align-center">CONTACT</h2>
       <section id="store-page-content" class="flex-container flex-wrap">

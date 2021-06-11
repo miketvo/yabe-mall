@@ -7,21 +7,7 @@
 ?>
 
 <?php
-    
-    // get all stores, products, and categories data
-    $stores = read_csv(PRIVATE_PATH . "/database/stores.csv", true);
-    $products = read_csv(PRIVATE_PATH . "/database/products.csv", true);
-    $categories = read_csv(PRIVATE_PATH . "/database/categories.csv", true);
-    
-    no_id_redirect(count($products));
-    
-    // get data of the current product and its store
-    $specific_product = get_item_data($products);
-    $specific_store = get_item_info($specific_product["store_id"], $stores);
-    $store_cat = get_item_info($specific_store["category_id"], $categories);
-    
-    
-    $page_title = $specific_store["name"] . " | " . $specific_product["name"];
+
     $style_sheets = [
         "/css/common.css",
         "/css/cards.css",
@@ -33,6 +19,21 @@
         "/js/cart/cart.js",
     ];
     
+    
+    // get all stores, products, and categories data
+    $stores = read_csv(PRIVATE_PATH . "/database/stores.csv", true);
+    $products = read_csv(PRIVATE_PATH . "/database/products.csv", true);
+    $categories = read_csv(PRIVATE_PATH . "/database/categories.csv", true);
+    
+    no_id_redirect(count($products));
+    
+    // get data of the current product and its store
+    $product = get_item_data($products);
+    $store = get_item_info($product["store_id"], $stores);
+    $store_cat = get_item_info($store["category_id"], $categories);
+    $page_title = $store["name"] . " | " . $product["name"];
+    
+    
     include(SHARED_PATH . "/top.php");
 
 ?>
@@ -40,9 +41,9 @@
   <main id="product-content">
     <ul class="breadcrumb">
       <li><a href="<?=url_for("/mall");?>">Home</a>/</li>
-      <li><a href="<?=url_for("/mall/browse/?by-store=by-category");?>"><?=$store_cat["name"]; ?></a>/</li>
-      <li><a href="<?=url_for("/store/content?id=" . $specific_product["store_id"]);?>" id="store-name"><?=$specific_store["name"]; ?></a>/</li>
-      <li><a href="<?=url_for("/store/content/product-detail?id=" . $specific_product["id"]);?>"><?=$specific_product["name"]; ?></a></li>
+      <li><a href="<?=url_for("/mall/browse/?by-store=by-category");?>"><?=$store_cat["name"];?></a>/</li>
+      <li><a href="<?=url_for("/store/content?id=" . $product["store_id"]);?>" id="store-name"><?=$store["name"];?></a>/</li>
+      <li><a href="<?=url_for("/store/content/product-detail?id=" . $product["id"]);?>"><?=$product["name"];?></a></li>
     </ul>
 
     <section id="product-info" class="content-body flex-container">
@@ -58,16 +59,16 @@
       </span>
 
       <span class="product-info-main-img">
-        <img src="../../../media/image/placeholder_1920x1080.jpg" alt="main image of the product">
+        <img src="<?=$product["thumbnail"]?>" alt="main image of the product">
       </span>
 
       <div class="product-info-main">
-        <p class="product-detail-store-name"><?= strtoupper($specific_store["name"]); ?></p>
-        <h2><?=$specific_product["name"]; ?></h2>
+        <p class="product-detail-store-name"><?=strtoupper($store["name"]);?></p>
+        <h2><?=$product["name"];?></h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         <div class="product-info-details">
-          <p class="product-info-price float-left">&dollar;<?=$specific_product["price"]; ?></p>
-          <p class="product-info-date float-left"><?= substr($specific_product["created_time"], 0, 10); ?></p>
+          <p class="product-info-price float-left">&dollar;<?=$product["price"];?></p>
+          <p class="product-info-date float-left"><?= substr($product["created_time"], 0, 10);?></p>
         </div>
         <div class="shop-bttn clear-both">
           <button class="add-to-cart">ADD TO CART</button>
@@ -90,7 +91,7 @@
         </tr>
         <tr>
           <th>ID number</th>
-          <td><?=$specific_product["id"]; ?></td>
+          <td><?=$product["id"];?></td>
         </tr>
         <tr>
           <th>Language</th>

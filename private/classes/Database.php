@@ -41,7 +41,8 @@
                             $entry["name"],
                             $categories->getEntryById($entry["category_id"]),
                             strtotime($entry["created_time"]),
-                            boolval($entry["featured"])
+                            boolval($entry["featured"]),
+                            $entry["profile_pic"]
                         );
                     }
                     break;
@@ -56,7 +57,8 @@
                             $stores->getEntryById($entry["store_id"]),
                             strtotime($entry["created_time"]),
                             boolval($entry["featured_in_mall"]),
-                            boolval($entry["featured_in_store"])
+                            boolval($entry["featured_in_store"]),
+                            $entry["thumbnail"]
                         );
                     }
                     break;

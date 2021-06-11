@@ -100,22 +100,21 @@
         height: 80px;
     }
 
-    .product-info-other-media {
-        width: 10%;
-    }
-
-    .product-info-main-img {
-        width: auto;
-        -webkit-flex-shrink: 1;
-        flex-shrink: 1;
-    }
-
     .product-info-main {
         width: 50%;
     }
 
     .product-info-main-img {
         margin-right: 40px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .product-info-main-img {
+        width: auto;
+        -webkit-flex: 1 1;
+        -ms-flex: 1 1;
+        flex: 1 1;
     }
 }
 

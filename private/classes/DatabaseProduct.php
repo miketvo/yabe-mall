@@ -8,6 +8,7 @@
         public DatabaseStore $store;
         public bool $featured_in_mall;
         public bool $featured_in_store;
+        public string $thumbnail;
         
         
         public function __construct(
@@ -17,7 +18,8 @@
             DatabaseStore $store,
             int $created_time=null,
             bool $featured_in_mall=false,
-            bool $featured_in_store=false
+            bool $featured_in_store=false,
+            string $thumbnail="media/image/placeholder_262x250.png"
         ) {
             parent::__construct($id, $name);
             $this->price = $price;
@@ -29,6 +31,7 @@
             $this->store = $store;
             $this->featured_in_mall = $featured_in_mall;
             $this->featured_in_store = $featured_in_store;
+            $this->thumbnail = $thumbnail;
     
             self::$count++;
         }
