@@ -20,10 +20,10 @@
     ];
     
     // Constants
-    define("NEW_PRODUCTS_DISPLAY_NUM", 10);
+    define("NEW_PRODUCTS_DISPLAY_NUM", 20);
     define("FEATURED_PRODUCTS_DISPLAY_NUM", 12);
-    define("FEATURED_STORES_DISPLAY_NUM", 10);
-    define("NEW_STORES_DISPLAY_NUM", 12);
+    define("FEATURED_STORES_DISPLAY_NUM", 12);
+    define("NEW_STORES_DISPLAY_NUM", 20);
     
 
     // Dynamic loading of database
@@ -80,7 +80,7 @@
               // Get a query containing the product's ID for dynamic product detail can work properly
               $display_count = 0;
               $featured_mall_products = check_featured_mall_products($products);
-              while ($display_count < FEATURED_PRODUCTS_DISPLAY_NUM) {
+              while ($display_count < FEATURED_PRODUCTS_DISPLAY_NUM && $display_count < count($featured_mall_products)) {
                   echo "<div class='product-card'>
                         <a href='" . url_for("/store/content/product-detail?id={$featured_mall_products[$display_count]['id']}") . "'><img alt='image of a product' src='../media/image/placeholder_262x250.png'></a>
                         <div class='product-card-details'>
@@ -95,8 +95,6 @@
           
           ?>
       </div>
-
-      <button class="cards-load-more-bttn" id="load-more-featured-products" onclick="">LOAD MORE</button>
     </section>
 
     <section class="mall-home-section" id="featured-stores">
@@ -108,9 +106,9 @@
               // Get a query containing the store's ID for dynamic store home can work properly
               $display_count = 0;
               $featured_mall_stores = check_featured_mall_stores($stores);
-              while ($display_count < FEATURED_STORES_DISPLAY_NUM) {
+              while ($display_count < FEATURED_STORES_DISPLAY_NUM && $display_count < count($featured_mall_stores)) {
                   echo "<div class='store-card'>
-                        <a href='" . url_for("/store/content?id={$featured_mall_stores[$display_count]['id']}") . "'><img class='store-card-thumbnail' alt='image representation of a shop' src='../media/image/profile-placeholder_143x143.png'></a>
+                        <a href='" . url_for("/store/content?id={$featured_mall_stores[$display_count]['id']}") . "'><img class='store-card-thumbnail' alt='image representation of a shop' src='" . $featured_mall_stores[$display_count]["profile_pic"] . "'></a>
                         <a class='store-card-name' href='" . url_for("/store/content?id={$featured_mall_stores[$display_count]['id']}") . "'>" . $featured_mall_stores[$display_count]["name"] . "</a>
                       </div>";
                   $display_count++;
@@ -119,8 +117,6 @@
           ?>
 
       </div>
-
-      <button class="cards-load-more-bttn" id="load-more-featured-stores" onclick="">LOAD MORE</button>
     </section>
 
     <section class="mall-home-section card-gallery">
@@ -135,7 +131,7 @@
               $display_count = 0;
               while ($display_count < NEW_STORES_DISPLAY_NUM) {
                   echo "<div class='store-card'>
-                        <a href='" . url_for("/store/content?id={$stores[$display_count]['id']}") . "'><img class='store-card-thumbnail' alt='image representation of a shop' src='../media/image/profile-placeholder_143x143.png'></a>
+                        <a href='" . url_for("/store/content?id={$stores[$display_count]['id']}") . "'><img class='store-card-thumbnail' alt='image representation of a shop' src='" . $stores[$display_count]["profile_pic"] . "'></a>
                         <a class='store-card-name' href='" . url_for("/store/content?id={$stores[$display_count]['id']}") . "'>" . $stores[$display_count]["name"] . "</a>
                         <div class='store-card-sale-card'>" . substr($stores[$display_count]["created_time"],0,10) . "</div>
                       </div>";
